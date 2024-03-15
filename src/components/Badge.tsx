@@ -57,7 +57,7 @@ export const Badge = (props: Props) => {
         <span style={{ 'font-weight': 'bold' }}> MISHU AI</span>
       </a>
       <br />
-      <span style={{ 'font-size': '11px', color: disclaimerColor }}> Maya is learning and improving. She aims to be accurate but please verify for accuracy.</span>
+      <span style={{ 'font-size': '11px', color: disclaimerColor }}>Maya is learning and improving. She aims to be accurate but please verify for accuracy.</span>
     </span>
   );
 };

@@ -418,6 +418,9 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
     }
   };
 
+  const closeChat = () => {
+    {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
+  }
   // Auto scroll chat to bottom
   createEffect(() => {
     if (messages()) scrollToBottom();
@@ -796,12 +799,12 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               sendButtonColor={props.bubbleTextColor}
               type="button"
               isDisabled={messages().length === 1}
-              class="my-2 ml-2 mr-2"
+              class="my-2 ml-2 mr-1"
               on:click={clearChat}
             >
               <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
             </DeleteButton>
-            <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="my-2 ml-2" on:click={clearChat}>
+            <CancelButton buttonColor={props.bubbleTextColor} type="button" class="my-2 ml-2" on:click={closeChat}>
                   <span style={{ 'font-family': 'Poppins, sans-serif' }}>Minimize</span>
             </CancelButton>
           </div>
@@ -985,7 +988,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           <Badge badgeBackgroundColor={props.badgeBackgroundColor} poweredByTextColor={props.poweredByTextColor} botContainer={botContainer} />
         </div>
       </div>
-      {sourcePopupOpen() && <Popup isOpen={true} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
+      {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
     </>
   );
 };
