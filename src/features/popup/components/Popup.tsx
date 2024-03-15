@@ -61,12 +61,12 @@ export const Popup = (props: PopupProps) => {
   };
 
   onMount(() => {
-    openBot();
+    setIsBotOpened(true);
     if (preEl) {
       preEl.innerHTML = syntaxHighlight(JSON.stringify(props?.value, undefined, 2));
     }
   });
-  
+
   const closeBot = () => {
     setIsBotOpened(false);
     popupProps.onClose?.();

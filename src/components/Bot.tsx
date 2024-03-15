@@ -169,7 +169,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   const [userInput, setUserInput] = createSignal('');
   const [loading, setLoading] = createSignal(false);
-  const [sourcePopupOpen, setSourcePopupOpen] = createSignal(true);
+  const [sourcePopupOpen, setSourcePopupOpen] = createSignal(false);
   const [sourcePopupSrc, setSourcePopupSrc] = createSignal({});
   const [messages, setMessages] = createSignal<MessageType[]>(
     [
@@ -420,7 +420,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   const closeChat = () => {
     try {
-      sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />
+      <Popup isOpen={true} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />
     } catch (error: any) {
       const errorData = error.response.data || `${error.response.status}: ${error.response.statusText}`;
       console.error(`error: ${errorData}`);
