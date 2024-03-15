@@ -796,11 +796,14 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               sendButtonColor={props.bubbleTextColor}
               type="button"
               isDisabled={messages().length === 1}
-              class="my-2 ml-2"
+              class="my-2 ml-2 mr-2"
               on:click={clearChat}
             >
               <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
             </DeleteButton>
+            <CancelButton buttonColor={props.textInput?.sendButtonColor} type="button" class="my-2 ml-2" on:click={clearChat}>
+                  <span style={{ 'font-family': 'Poppins, sans-serif' }}>Minimize</span>
+            </CancelButton>
           </div>
         ) : null}
         <div class="flex flex-col w-full h-full justify-start z-0">
