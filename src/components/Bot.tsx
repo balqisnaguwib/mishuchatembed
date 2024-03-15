@@ -78,7 +78,7 @@ export type BotProps = {
   observersConfig?: observersConfigType;
 };
 
-const defaultWelcomeMessage = 'Hi there! How can I help?';
+const defaultWelcomeMessage = 'Hello! 👋 I am Maya, a Business Consultant at MISHU. How can I assist you today?';
 
 /*const sourceDocuments = [
     {
@@ -982,7 +982,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
           <Badge badgeBackgroundColor={props.badgeBackgroundColor} poweredByTextColor={props.poweredByTextColor} botContainer={botContainer} />
         </div>
       </div>
-      {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
+      {sourcePopupOpen() && <Popup isOpen={true} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
     </>
   );
 };

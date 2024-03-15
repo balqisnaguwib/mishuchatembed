@@ -6,7 +6,8 @@ type Props = {
   badgeBackgroundColor?: string;
 };
 
-const defaultTextColor = '#303235';
+const defaultTextColor = '#48c3db';
+const disclaimerColor = '#808080';
 
 export const Badge = (props: Props) => {
   let liteBadge: HTMLAnchorElement | undefined;
@@ -46,16 +47,17 @@ export const Badge = (props: Props) => {
     >
       Powered by
       <a
-        ref={liteBadge}
-        href={'https://flowiseai.com'}
+        href={'https://mishu.my/'}
         target="_blank"
         rel="noopener noreferrer"
         class="lite-badge"
         id="lite-badge"
-        style={{ 'font-weight': 'bold', color: props.poweredByTextColor ?? defaultTextColor }}
+        style={{ color: props.poweredByTextColor ?? defaultTextColor }}
       >
-        <span> Flowise</span>
+        <span style={{ 'font-weight': 'bold' }}> MISHU AI</span>
       </a>
+      <br />
+      <span style={{ 'font-size': '11px', color: disclaimerColor }}> Disclaimer: Maya is currently undergoing training, so the information provided may not always be entirely accurate.</span>
     </span>
   );
 };
