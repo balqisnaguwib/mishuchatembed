@@ -420,7 +420,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   const closeChat = () => {
     try {
-      <Popup isOpen={true} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />
+      setSourcePopupOpen(false)
     } catch (error: any) {
       const errorData = error.response.data || `${error.response.status}: ${error.response.statusText}`;
       console.error(`error: ${errorData}`);
@@ -744,7 +744,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
       };
     }),
   );
-
+  
   return (
     <>
       <div

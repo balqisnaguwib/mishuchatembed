@@ -40,6 +40,13 @@ export const Popup = (props: PopupProps) => {
 
   const [popupProps] = splitProps(props, ['onOpen', 'onClose', 'isOpen', 'value']);
 
+  onMount(() => {
+    setIsBotOpened(true);
+    if (preEl) {
+      preEl.innerHTML = syntaxHighlight(JSON.stringify(props?.value, undefined, 2));
+    }
+  });
+
   const [isBotOpened, setIsBotOpened] = createSignal(
     // eslint-disable-next-line solid/reactivity
     popupProps.isOpen ?? false,
@@ -59,13 +66,6 @@ export const Popup = (props: PopupProps) => {
     popupProps.onOpen?.();
     document.body.style.overflow = 'hidden';
   };
-
-  onMount(() => {
-    setIsBotOpened(true);
-    if (preEl) {
-      preEl.innerHTML = syntaxHighlight(JSON.stringify(props?.value, undefined, 2));
-    }
-  });
 
   const closeBot = () => {
     setIsBotOpened(false);
