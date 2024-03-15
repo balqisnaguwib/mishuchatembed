@@ -742,7 +742,6 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
   
   return (
     <>
-      <Popup onOpen={() => setSourcePopupOpen(true)} />
       <div
         ref={botContainer}
         class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container ' + props.class}
