@@ -169,7 +169,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   const [userInput, setUserInput] = createSignal('');
   const [loading, setLoading] = createSignal(false);
-  const [sourcePopupOpen, setSourcePopupOpen] = createSignal(false);
+  const [sourcePopupOpen, setSourcePopupOpen] = createSignal(true);
   const [sourcePopupSrc, setSourcePopupSrc] = createSignal({});
   const [messages, setMessages] = createSignal<MessageType[]>(
     [
@@ -419,8 +419,14 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
   };
 
   const closeChat = () => {
-    {sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />}
-  }
+    try {
+      sourcePopupOpen() && <Popup isOpen={sourcePopupOpen()} value={sourcePopupSrc()} onClose={() => setSourcePopupOpen(false)} />
+    } catch (error: any) {
+      const errorData = error.response.data || `${error.response.status}: ${error.response.statusText}`;
+      console.error(`error: ${errorData}`);
+    }
+  };
+
   // Auto scroll chat to bottom
   createEffect(() => {
     if (messages()) scrollToBottom();
@@ -799,7 +805,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               sendButtonColor={props.bubbleTextColor}
               type="button"
               isDisabled={messages().length === 1}
-              class="my-2 ml-2 mr-1"
+              class="my-2 ml-2 mr-0"
               on:click={clearChat}
             >
               <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
