@@ -45,13 +45,13 @@ export const BubbleButton = (props: Props) => {
       </Show>
       <Show when={props.customIconSrc}>
         <div class="flex items-center"> {/* Container for the icon and bubble */}
-        <div class="relative">
+        <div class="absolute">
             {/* Bubble */}
-            <div class="absolute top-0 left-0 h-8 w-24 bg-blue-500 rounded-full flex items-center justify-center">
+            <div class="absolute top-0 left-0 h-8 w-24 rounded-full flex items-center justify-center">
               <span style={{
                 'background-color': props.backgroundColor ?? defaultButtonColor,
                 'z-index': 42424242,
-                right: props.right ? `${Number(props.right) + 10}px` : `${defaultRight + 10}px`,
+                right: props.right ? `${Number(props.right) + 40}px` : `${defaultRight + 40}px`,
                 bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
                 }} class="text-white text-sm font-semibold">Chat With Maya</span>
             </div>
