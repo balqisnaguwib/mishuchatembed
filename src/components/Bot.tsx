@@ -420,7 +420,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
   const closeChat = () => {
     try {
-      setSourcePopupOpen(false)
+      <Popup onClose={() => setSourcePopupOpen(false)}/>
     } catch (error: any) {
       const errorData = error.response.data || `${error.response.status}: ${error.response.statusText}`;
       console.error(`error: ${errorData}`);
@@ -805,7 +805,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               sendButtonColor={props.bubbleTextColor}
               type="button"
               isDisabled={messages().length === 1}
-              class="my-2 ml-2 mr-0"
+              class="my-2 ml-2"
               on:click={clearChat}
             >
               <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
