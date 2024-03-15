@@ -419,12 +419,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
   };
 
   const closeChat = () => {
-    try {
-      <Popup onClose={() => setSourcePopupOpen(false)}/>
-    } catch (error: any) {
-      const errorData = error.response.data || `${error.response.status}: ${error.response.statusText}`;
-      console.error(`error: ${errorData}`);
-    }
+    window.location.href = 'https://mishu.my/';
   };
 
   // Auto scroll chat to bottom
@@ -810,8 +805,8 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
             >
               <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
             </DeleteButton>
-            <CancelButton buttonColor={props.bubbleTextColor} type="button" class="my-2 ml-2" on:click={closeChat}>
-                  <span style={{ 'font-family': 'Poppins, sans-serif' }}>Minimize</span>
+            <CancelButton buttonColor={props.bubbleTextColor} class="my-2 ml-2"  on:click={closeChat}>
+                   <span style={{ 'font-family': 'Poppins, sans-serif' }}>Minimize</span>
             </CancelButton>
           </div>
         ) : null}
