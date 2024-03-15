@@ -59,15 +59,6 @@ export const Popup = (props: PopupProps) => {
     document.body.style.overflow = 'auto';
   };
 
-  const toggleBot = () => {
-    setIsBotOpened((prev) => !prev); // Toggle the state
-  };
-
-  createEffect(() => {
-    if (isNotDefined(popupProps.isOpen) || popupProps.isOpen === isBotOpened()) return;
-    toggleBot();
-  });
-
   return (
     <Show when={isBotOpened()}>
       <style>{styles}</style>
