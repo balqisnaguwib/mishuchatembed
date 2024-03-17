@@ -45,7 +45,7 @@ export const BubbleButton = (props: Props) => {
       </Show>
       <Show when={props.customIconSrc}>
             {/* Bubble */}
-            <div class="relative top-0 left-0 h-8 w-24 rounded-full flex items-center justify-center">
+            <div class="absolute top-0 left-0 h-8 w-24 rounded-full flex items-center justify-center">
               <span style={{
                 'background-color': props.backgroundColor ?? defaultButtonColor,
                 'z-index': 42424242,
@@ -53,7 +53,7 @@ export const BubbleButton = (props: Props) => {
                 bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
                 }} class="text-white text-sm font-semibold">Chat With Maya</span>
             </div>
-            
+
             {/* Custom Icon */}
             <img
               src={props.customIconSrc}
