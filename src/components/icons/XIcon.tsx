@@ -13,6 +13,6 @@ export const XIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => (
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <path d="M10 4v4l-6-2L1 7l5 5-5 5 3 1 6-2v4h2v-4l6 2 2-1-5-5 5-5-3-1-6 2V4h-2z" />
+    <path d="M7 10V4L3 7L7 10ZM17 10V4L21 7L17 10ZM7 14V20L3 17L7 14ZM17 14V20L21 17L17 14Z" />
   </svg>
 );
