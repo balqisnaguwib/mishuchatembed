@@ -44,17 +44,6 @@ export const BubbleButton = (props: Props) => {
         </svg>
       </Show>
       <Show when={props.customIconSrc}>
-        <div class="flex items-center relative"> {/* Container for the icon and bubble */}
-          {/* Bubble */}
-          <div
-            class={'relative h-8 w-24 rounded-full flex items-center justify-center absolute right-0' + (props.isBotOpened ? ' scale-0 opacity-0' : ' scale-100 opacity-100')}
-            style={{
-              "background-color" : props.backgroundColor ?? defaultButtonColor,
-              "z-index": 42424242,
-              bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
-            }}>
-            <span class="text-white text-sm font-semibold">Chat With Maya</span>
-          </div>
           {/* Custom Icon */}
           <img
             src={props.customIconSrc}
@@ -70,7 +59,6 @@ export const BubbleButton = (props: Props) => {
             }
             alt="Bubble button icon"
           />
-        </div>
       </Show>
 
 
