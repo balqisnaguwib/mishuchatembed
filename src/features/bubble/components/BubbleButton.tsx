@@ -43,18 +43,10 @@ export const BubbleButton = (props: Props) => {
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
         </svg>
       </Show>
+
       <Show when={props.customIconSrc}>
         <div class="flex items-center"> {/* Container for the icon and bubble */}
-        <div class="relative">
-            {/* Bubble */}
-            <div class="absolute top-0 left-0 h-8 w-24 rounded-full flex items-center justify-center">
-              <span style={{
-                'background-color': props.backgroundColor ?? defaultButtonColor,
-                'z-index': 42424242,
-                right: props.right ? `${Number(props.right) + 100}px` : `${defaultRight + 100}px`,
-                bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
-                }} class="text-white text-sm font-semibold">Chat With Maya</span>
-            </div>
+          <div class="relative">
             {/* Custom Icon */}
             <img
               src={props.customIconSrc}
@@ -71,9 +63,19 @@ export const BubbleButton = (props: Props) => {
               alt="Bubble button icon"
             />
           </div>
+          {/* Bubble */}
+          <div
+            class="relative h-8 w-24 rounded-full flex items-center justify-center"
+            style={{
+              'background-color': props.backgroundColor ?? defaultButtonColor,
+              'z-index': 42424242,
+              right: props.right ? `${Number(props.right) + 100}px` : `${defaultRight + 100}px`,
+              bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
+            }}>
+            <span class="text-white text-sm font-semibold">Chat With Maya</span>
+          </div>
         </div>
       </Show>
-
 
       <svg
         viewBox="0 0 24 24"
